@@ -4,12 +4,12 @@
 /* --------------------------------------------- */
 // WINDOW SETTINGS
 /* --------------------------------------------- */
-const std::string EVC_EXERCISE_NAME = "Sun System";
+const std::string WINDOW_NAME = "Sun System";
 const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 720;
 const float FOV = 60.0f;
 const float ZNEAR = 0.1f;
-const float ZFAR = 500.0f; 
+const float ZFAR = 1000.0f; 
 
 /* --------------------------------------------- */
 // RESOURCES
@@ -54,7 +54,7 @@ const float NEPTUNE_ROTATION_SPEED = EARTH_ROTATION_SPEED * (4 / 3);
 /* --------------------------------------------- */
 // SKYBOX SETTING
 /* --------------------------------------------- */
-const float SKYBOX_SCALE_FACTOR = 200.0f;
+const float SKYBOX_SCALE_FACTOR = 400.0f;
 
 /* --------------------------------------------- */
 // SHADER LOCATIONS

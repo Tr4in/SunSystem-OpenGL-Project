@@ -397,7 +397,7 @@ void createWindow(GLFWwindow** window, const int WIDTH, const int HEIGHT) {
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif
 
-	*window = glfwCreateWindow(WIDTH, HEIGHT, EVC_EXERCISE_NAME.c_str(), nullptr, nullptr);
+	*window = glfwCreateWindow(WIDTH, HEIGHT, WINDOW_NAME.c_str(), nullptr, nullptr);
 
 	if (!window) {
 		std::cerr << "Error: Could not create window!" << std::endl;
