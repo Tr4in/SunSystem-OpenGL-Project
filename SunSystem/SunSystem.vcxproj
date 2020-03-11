@@ -92,8 +92,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glm;C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glfw-3.3.bin.WIN32\include;C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glew-2.1.0\include;$(IncludePath)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -120,7 +118,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -128,7 +126,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glm;C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glfw-3.3.bin.WIN32\include;C:\Users\Markovic Predrag\source\repos\SunSystem\SunSystem\glew-2.1.0\include;$(IncludePath)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -170,7 +167,7 @@
     <ClCompile Include="shapes\Cube.cpp" />
     <ClCompile Include="shapes\Cylinder.cpp" />
     <ClCompile Include="shapes\Shape.cpp" />
-    <ClCompile Include="shapes\Sphere.cpp" />
+    <ClCompile Include="shapes\Planet.cpp" />
     <ClCompile Include="SunSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,7 +184,7 @@
     <ClInclude Include="shapes\Cube.h" />
     <ClInclude Include="shapes\Cylinder.h" />
     <ClInclude Include="shapes\Shape.h" />
-    <ClInclude Include="shapes\Sphere.h" />
+    <ClInclude Include="shapes\Planet.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="texture_reader\stb_image.h" />
   </ItemGroup>

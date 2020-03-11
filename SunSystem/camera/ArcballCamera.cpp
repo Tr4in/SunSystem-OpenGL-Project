@@ -42,7 +42,6 @@ void ArcballCamera::updatePosition(float mouseX, float mouseY, float zoom, bool 
 	}
 
 	if (right_mouse_clicked) {
-		std::cout << strafeX << std::endl;
 		this->strafeX = this->currentStrafeX - (mouseX - this->origin.x);
 		this->strafeY = this->currentStrafeY + (mouseY - this->origin.y);
 	}

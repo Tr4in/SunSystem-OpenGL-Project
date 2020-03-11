@@ -27,9 +27,6 @@
     <ClCompile Include="shapes\Cylinder.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="shapes\Sphere.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="DebugUtils.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -51,6 +48,9 @@
     <ClCompile Include="shapes\Annulus.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="shapes\Planet.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -69,9 +69,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="shapes\Cylinder.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="shapes\Sphere.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="DebugUtils.h">
@@ -99,6 +96,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="shapes\Annulus.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="shapes\Planet.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

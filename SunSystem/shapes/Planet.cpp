@@ -1,6 +1,6 @@
-#include "Sphere.h"
+#include "Planet.h"
 
-Sphere::Sphere(float radius, unsigned int latitude_segments, unsigned int longitude_segments, glm::mat4 model_matrix, Texture& texture, unsigned int texture_unit) : Shape(texture, model_matrix, texture_unit) {
+Planet::Planet(float radius, unsigned int latitude_segments, unsigned int longitude_segments, glm::mat4 model_matrix, Texture& texture, unsigned int texture_unit) : Shape(texture, model_matrix, texture_unit) {
 	this->radius = radius;
 	this->latitude_segments = latitude_segments;
 	this->longitude_segments = longitude_segments;
@@ -9,7 +9,7 @@ Sphere::Sphere(float radius, unsigned int latitude_segments, unsigned int longit
 	setBufferData();
 }
 
-void Sphere::initVertricesAndIndices() {
+void Planet::initVertricesAndIndices() {
 	float latitude_angle = glm::radians(180.0f / this->latitude_segments);
 	float longitude_angle = glm::radians(360.0f / this->longitude_segments);
 
@@ -36,7 +36,7 @@ void Sphere::initVertricesAndIndices() {
 			this->textureCoordinates.insert(
 				this->textureCoordinates.end(),
 				{
-					(float)longitude_segment / (float)this->longitude_segments, 1.0f - (float)latitude_segment / (float)this->latitude_segments
+					(float)longitude_segment / (float)this->longitude_segments, (float)latitude_segment / (float)this->latitude_segments
 				}
 			);
 		}
@@ -70,7 +70,7 @@ void Sphere::initVertricesAndIndices() {
 					this->textureCoordinates.insert(
 						this->textureCoordinates.end(),
 						{
-							0.01f, 1.0f - (float)latitude_segment / (float)this->latitude_segments
+							0.01f,  (float)latitude_segment / (float)this->latitude_segments
 						}
 					);
 				}
@@ -79,7 +79,7 @@ void Sphere::initVertricesAndIndices() {
 					this->textureCoordinates.insert(
 						this->textureCoordinates.end(),
 						{
-							0.0f, 1.0f - (float)latitude_segment / (float)this->latitude_segments
+							0.0f, (float)latitude_segment / (float)this->latitude_segments
 						}
 					);
 				}
@@ -138,7 +138,7 @@ void Sphere::initVertricesAndIndices() {
 		);
 	}
 
-	unsigned int sphereTopIndex = this->vertrices.size() / 3;
+	unsigned int PlanetTopIndex = this->vertrices.size() / 3;
 	
 	for (unsigned int segment = 0; segment < this->longitude_segments; segment++) {
 		this->vertrices.insert(
@@ -153,12 +153,12 @@ void Sphere::initVertricesAndIndices() {
 
 		this->textureCoordinates.insert(
 			this->textureCoordinates.end(),
-			{ (float)segment / (float)this->longitude_segments, 1.0f }
+			{ (float)segment / (float)this->longitude_segments, 0.0f }
 		);
 
 	}
 
-	unsigned int sphereBottomIndex = this->vertrices.size() / 3;
+	unsigned int PlanetBottomIndex = this->vertrices.size() / 3;
 
 	for (unsigned int segment = 0; segment < this->longitude_segments; segment++) {
 		this->vertrices.insert(
@@ -173,12 +173,12 @@ void Sphere::initVertricesAndIndices() {
 
 		this->textureCoordinates.insert(
 			this->textureCoordinates.end(),
-			{ (float)segment / (float)this->longitude_segments, 0.0f }
+			{ (float)segment / (float)this->longitude_segments, 1.0f }
 		);
 	}
 
-	// TOP SPHERE POINT
-	for (unsigned int index = sphereTopIndex; index < sphereBottomIndex; index++) {
+	// TOP Planet POINT
+	for (unsigned int index = PlanetTopIndex; index < PlanetBottomIndex; index++) {
 		for (unsigned int segment = 0; segment < this->longitude_segments; segment++) {
 			this->indices.insert(this->indices.end(),
 				{ index, segment, (segment + 1) % this->longitude_segments }
@@ -186,8 +186,8 @@ void Sphere::initVertricesAndIndices() {
 		}
 	}
 
-	// BOTTOM SPHERE POINT
-	for (unsigned int index = sphereBottomIndex; index < this->vertrices.size() / 3; index++) {
+	// BOTTOM Planet POINT
+	for (unsigned int index = PlanetBottomIndex; index < this->vertrices.size() / 3; index++) {
 		for (unsigned int segment = (this->latitude_segments - 2) * this->longitude_segments; segment < this->longitude_segments * (this->latitude_segments - 1); segment++) {
 			this->indices.insert(this->indices.end(),
 				{

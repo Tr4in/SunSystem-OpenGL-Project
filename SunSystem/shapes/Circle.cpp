@@ -11,7 +11,7 @@ Circle::Circle(float radius)
 
 void Circle::generateVertrices() {
 
-	for (float angle = 0.0f; angle > -360.0f; angle--) {
+	for (float angle = 0.0f; angle > -359.0f; angle-=2) {
 		this->vertrices.insert(
 			this->vertrices.end(),
 			{

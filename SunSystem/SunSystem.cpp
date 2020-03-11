@@ -8,7 +8,7 @@
 #include "glm/glm/glm.hpp"
 #include "shapes/Cube.h"
 #include "shapes/Cylinder.h"
-#include "shapes/Sphere.h"
+#include "shapes/Planet.h"
 #include "shapes/Circle.h"
 #include "shapes/Annulus.h"
 #include "light/DirectionalLight.h"
@@ -185,15 +185,15 @@ int main(int argc, char** argv)
 
 	glm::mat4 saturn_model_matrix = glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -SATURN_DISTANCE));
 
-	Sphere sun(9.0f, 32, 64, glm::translate(glm::vec3(0.0f, 0.0f, 0.0f)), textureVector.at(0), 0);
-	Sphere mercury(1.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -MERCURY_DISTANCE)), textureVector.at(1), 0);
-	Sphere venus(1.5f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -VENUS_DISTANCE)), textureVector.at(2), 0);
-	Sphere earth(1.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -EARTH_DISTANCE)), textureVector.at(3), 0);
-	Sphere mars(0.5f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -MARS_DISTANCE)), textureVector.at(4), 0);
-	Sphere jupiter(4.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -JUPITER_DISTANCE)), textureVector.at(5), 0);
-	Sphere saturn(3.0f, 32, 64, saturn_model_matrix, textureVector.at(6), 0);
-	Sphere uranus(2.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -URANUS_DISTANCE)), textureVector.at(7), 0);
-	Sphere neptune(2.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -NEPTUNE_DISTANCE)), textureVector.at(8), 0);
+	Planet sun(9.0f, 32, 64, glm::translate(glm::vec3(0.0f, 0.0f, 0.0f)), textureVector.at(0), 0);
+	Planet mercury(1.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -MERCURY_DISTANCE)), textureVector.at(1), 0);
+	Planet venus(1.5f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -VENUS_DISTANCE)), textureVector.at(2), 0);
+	Planet earth(1.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -EARTH_DISTANCE)), textureVector.at(3), 0);
+	Planet mars(0.5f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -MARS_DISTANCE)), textureVector.at(4), 0);
+	Planet jupiter(4.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -JUPITER_DISTANCE)), textureVector.at(5), 0);
+	Planet saturn(3.0f, 32, 64, saturn_model_matrix, textureVector.at(6), 0);
+	Planet uranus(2.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -URANUS_DISTANCE)), textureVector.at(7), 0);
+	Planet neptune(2.0f, 32, 64, glm::rotate((float)rand() * 360, glm::vec3(0.0f, 1.0f, 0.0f)) * glm::translate(glm::vec3(0.0f, 0.0f, -NEPTUNE_DISTANCE)), textureVector.at(8), 0);
 
 	Circle mercuryCircle(MERCURY_DISTANCE);
 	Circle venusCircle(VENUS_DISTANCE);
@@ -271,11 +271,11 @@ int main(int argc, char** argv)
 		uranus.draw();
 		neptune.draw();
 		glUseProgram(0);
-
+		
 		glUseProgram(shader_program_skybox);
 		space.draw();
 		glUseProgram(0);
-
+		
 		glUseProgram(shader_program_primitive);
 		mercuryCircle.draw();
 		venusCircle.draw();
